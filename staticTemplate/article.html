@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- page settings -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="AASuser">
+
+        <!-- page title -->
+        <title>جزئیات محصول</title>
+        
+        <!-- page description -->
+        <meta name="description" content="">
+        
+        <!-- page keywords -->
+        <meta name="keywords" content="">
+        
+        <!-- header references -->
+        <link rel="stylesheet" href="static/css/bootstrap-rtl-4.6.2/bootstrap-rtl.min.css">
+        <link rel="stylesheet" href="static/fonts/fontawesome-free-7.3.1-web/css/all.min.css">
+        <link rel="stylesheet" href="static/css/shared/main.css">
+
+        <!-- more styles -->
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id="page-contents" class="container-fluid overflow-hidden">
+            
+            <!-- shared header -->
+            <header class="row shadow">
+
+                <!-- header main section -->
+                <div id="header-main-section" class="container-fluid">
+                    <div class="row">
+                        
+                        <!-- header logo -->
+                        <div id="header-logo" class="col-md-2 col-12 d-flex align-items-center justify-content-center p-1">
+                            <a href="#" class="m-2">
+                                <img src="static/images/logo-base.png" alt="Logo" title="متن فروش" class="rounded">
+                            </a>
+                        </div>
+
+                        <!-- header main links -->
+                        <div id="header-main-links" class="col-lg-6 col-md-8 col-4 d-flex flex-wrap align-items-center justify-content-md-center justify-content-start p-1">
+                            
+                            <!-- main links menu in small pages -->
+                            <button type="button" id="hml-menu-inSP_button" class="btn btn-outline-dark dropdown d-md-none d-block pt-2 pb-0 pr-1 pl-1 mr-2">
+                                <i class="fa fa-bars h3"></i>
+                            </button>
+
+                            <!-- home -->
+                            <a href="#" class="btn btn-outline-dark d-md-inline-block d-none pt-2 pb-xl-2 pb-0 pr-xl-3 pr-1 pl-xl-3 pl-1 ml-2" id="testing1" data-role="link">
+                                <i class="fa fa-home h4 d-xl-none d-inline"></i>
+                                <span class="d-xl-inline d-none">صفحه اصلی</span>
+                            </a>
+
+                            <!-- stor -->
+                            <!-- has sub menu -->
+                            <div class="btn btn-outline-dark btn-group d-md-inline-block d-none p-0 ml-2 dropdown" data-role="menu">
+                                
+                                <!-- the main link -->
+                                <a href="#" class="d-inline-block full-glass pt-2 pb-2 pr-3 pl-3 text-dark">فروشگاه</a>
+                                
+                                <!-- the sub menu division -->
+                                <div class="dropdown-toggle has-menu full-glass d-inline-block p-2 border-right border-dark text-dark">
+                                    <div class="dropdown-menu sub-menu m-0 bg-dark">
+                                        
+                                        <!-- links in the sub menu -->
+                                        <a href="#" class="dropdown-item text-white">اقدام</a>
+                                        <a href="#" class="dropdown-item text-white">اقدام</a>
+                                        <a href="#" class="dropdown-item text-white">اقدام</a>
+                                        
+                                        <!-- a new sub menu in the sub menu -->
+                                        <div class="dropdown-item dropleft text-white pt-0 pb-0 pr-0 pl-5">
+                                            
+                                            <!-- the main link -->
+                                            <a href="#" class="btn-block full-glass d-inline-block pt-1 pb-1 pr-4 text-white">زیر منو</a>
+
+                                            <!-- the sub menu division -->
+                                            <div class="dropdown-toggle has-menu full-glass d-inline-block pr-4 pl-2 border-right border-white">
+                                                <div class="dropdown-menu sub-menu m-0 bg-dark">
+
+                                                    <!-- links in the sub menu -->
+                                                    <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                    <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                    <a href="#" class="dropdown-item text-white">اقدام</a>
+
+                                                    <!-- a new sub menu in the sub menu -->
+                                                    <div class="dropdown-item dropleft text-white pt-0 pb-0 pr-0 pl-5">
+                                                        
+                                                        <!-- the main link -->
+                                                        <a href="#" class="btn-block full-glass d-inline-block pt-1 pb-1 pr-4 text-white">زیر منو</a>
+
+                                                        <!-- the sub menu division -->
+                                                        <div class="dropdown-toggle has-menu full-glass d-inline-block pr-4 pl-2 border-right border-white">
+                                                            <div class="dropdown-menu sub-menu m-0 bg-dark">
+
+                                                                <!-- links in the sub menu -->
+                                                                <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                                <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                                <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- more links -->
+                                                    <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                    <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- blog -->
+                            <!-- has sub menu -->
+                            <div class="btn btn-outline-dark btn-group d-md-inline-block d-none p-0 ml-2 dropdown">
+                                
+                                <!-- the main link -->
+                                <a href="#" class="d-inline-block full-glass pt-2 pb-2 pr-3 pl-3 text-dark">بلاگ</a>
+                                
+                                <!-- the sub menu division -->
+                                <div class="dropdown-toggle has-menu full-glass d-inline-block p-2 border-right border-dark text-dark">
+                                    <div class="dropdown-menu sub-menu m-0 bg-dark">
+                                        
+                                        <!-- links in the sub menu -->
+                                        <a href="#" class="dropdown-item text-white">اقدام</a>
+                                        <a href="#" class="dropdown-item text-white">اقدام</a>
+                                        <a href="#" class="dropdown-item text-white">اقدام</a>
+                                        
+                                        <!-- a new sub menu in the sub menu -->
+                                        <div class="dropdown-item dropleft text-white pt-0 pb-0 pr-0 pl-5">
+                                            
+                                            <!-- the main link -->
+                                            <a href="#" class="btn-block full-glass d-inline-block pt-1 pb-1 pr-4 text-white">زیر منو</a>
+
+                                            <!-- the sub menu division -->
+                                            <div class="dropdown-toggle has-menu full-glass d-inline-block pr-4 pl-2 border-right border-white">
+                                                <div class="dropdown-menu sub-menu m-0 bg-dark">
+
+                                                    <!-- links in the sub menu -->
+                                                    <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                    <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                    <a href="#" class="dropdown-item text-white">اقدام</a>
+
+                                                    <!-- a new sub menu in the sub menu -->
+                                                    <div class="dropdown-item dropleft text-white pt-0 pb-0 pr-0 pl-5">
+                                                        
+                                                        <!-- the main link -->
+                                                        <a href="#" class="btn-block full-glass d-inline-block pt-1 pb-1 pr-4 text-white">زیر منو</a>
+
+                                                        <!-- the sub menu division -->
+                                                        <div class="dropdown-toggle has-menu full-glass d-inline-block pr-4 pl-2 border-right border-white">
+                                                            <div class="dropdown-menu sub-menu m-0 bg-dark">
+
+                                                                <!-- links in the sub menu -->
+                                                                <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                                <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                                <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- more links -->
+                                                    <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                    <a href="#" class="dropdown-item text-white">اقدام</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- contact-us -->
+                            <a href="#" class="btn btn-outline-dark d-md-inline-block d-none pt-2 pb-2 pr-3 pl-3 ml-2">تماس با ما</a>
+                        
+                            <!-- more links -->
+                            <!-- has sub menu. the button has been included to header's main links section for prevent line breaks. -->
+                            <button type="button" id="more-hml" class="btn btn-outline-dark dropdown has-menu hover-open-angle d-md-inline-block d-none pt-2 pb-0 pr-1 pl-1 ml-2">
+                                <i class="fa fa-angle-double-left h5"></i>
+
+                                <!-- the sub menu division -->
+                                <div class="dropdown-menu sub-menu m-0 bg-dark"></div>
+                            </button>
+                        </div>
+
+                        <!-- header user links -->
+                        <div id="header-user-links" class="col-lg-4 col-md-2 col-8 d-flex align-items-center justify-content-end pr-lg-3 pr-md-1 pr-3 pt-1 pb-1">
+                            
+                            <!-- when the user has logged in -->
+                            <div class="btn btn-outline-dark has-menu rounded-pill pb-lg-2 pb-md-0 pb-sm-2 pb-0 pr-lg-3 pr-md-1 pr-sm-3 pr-1 pl-lg-3 pl-md-1 pl-sm-3 pl-1 ml-2 position-relative">
+                                
+                                <!-- apearanse of the link -->
+                                <i class="fa fa-user d-lg-inline d-md-none d-sm-inline d-none"></i>
+                                <i class="fa fa-user h2 d-lg-none d-md-inline d-sm-none d-inline"></i>
+                                <span class="d-lg-inline d-md-none d-sm-inline d-none text-nowrap">حساب کاربری</span>
+
+                                <!-- number of user's alerts -->
+                                <span id="num-of-user-alerts" class="badge badge-warning position-absolute">2</span>
+
+                                <!-- the sub menu division -->
+                                <div class="dropdown-menu sub-menu">
+                                    <a href="#" class="dropdown-item">پنل کاربری</a>
+                                    <a href="#" class="dropdown-item">
+                                        اقدام
+                                        <span class="badge badge-info">3</span>
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        اقدام
+                                        <span class="badge badge-danger">1</span>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- when the user dosn't have logged in -->
+                            <!-- <a href="#" class="btn btn-outline-dark rounded-pill pb-lg-2 pb-md-0 pb-sm-2 pb-0 pr-lg-3 pr-md-1 pr-sm-3 pr-1 pl-lg-3 pl-md-1 pl-sm-3 pl-1 ml-2 position-relative">
+                                <i class="fa fa-lock d-lg-inline d-md-none d-sm-inline d-none"></i>
+                                <i class="fa fa-lock h2 d-lg-none d-md-inline d-sm-none d-inline"></i>
+                                <span class="d-lg-inline d-md-none d-sm-inline d-none text-nowrap">ورود / ثبت نام</span>
+                            </a> -->
+                            
+                            <!-- shopping basket -->
+                            <div href="#" class="btn btn-outline-dark has-menu rounded-pill pb-lg-2 pb-md-0 pb-sm-2 pb-0 pr-lg-3 pr-md-1 pr-sm-3 pr-1 pl-lg-3 pl-md-1 pl-sm-3 pl-1 ml-2 position-relative">
+                                
+                                <!-- apearance of the link -->
+                                <i class="fa fa-shopping-basket d-lg-inline d-md-none d-sm-inline d-none"></i>
+                                <i class="fa fa-shopping-basket h2 d-lg-none d-md-inline d-sm-none d-inline"></i>
+                                <span class="d-lg-inline d-md-none d-sm-inline d-none text-nowrap">سبد خرید</span>
+                                
+                                <!-- number of products added in the basket -->
+                                <span id="num-of-products" class="badge badge-danger position-absolute">2</span>
+                            
+                                <!-- the sub menu division -->
+                                <div class="dropdown-menu sub-menu">
+                                    <a href="#" class="dropdown-item">
+                                        محتوای سبد خرید
+                                        <span class="badge badge-danger">2</span>
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        فاکتور های قبلی
+                                        <span class="badge badge-secondary">5</span>
+                                    </a>
+                                    <button class="dropdown-item">
+                                        خالی کردن سبد خرید
+                                        <span class="badge badge-warning rounded-circle">!</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- header navigation bar -->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-12 justify-content-lg-start justify-content-end">
+
+                    <!-- collapse navbar -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- navbar contents -->
+                    <div class="collapse navbar-collapse" id="navbarScroll">
+
+                        <!-- links' menu -->
+                        <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="#">آخرین قالب ها</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="#">قالب فروشگاهی</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="#">قالب بلاگ</a>
+                            </li>
+
+                            <!-- has a dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-light dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                    مقالات
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">آخرین اخبار</a></li>
+                                    <li><a class="dropdown-item" href="#">پربازدیدترین مقالات آموزشی</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">اقدام</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link rounded bg-success text-white">اطلاعیه تخفیف ...</a>
+                            </li>
+                        </ul>
+
+                        <!-- search form -->
+                        <!-- quick search in all categories -->
+                        <form action="#" method="get" class="d-flex">
+                            <input type="search" name="quick-search" class="form-control ml-2" placeholder="دنبال چی بگردم؟">
+                            <button class="btn btn-outline-success col-4" type="submit">جست و جو</button>
+                        </form>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- page contents -->
+            <div class="row mt-3 mb-md-3">
+
+                <!-- article section -->
+                <section class="col-12 d-flex flex-wrap justify-content-center mt-2 mb-2">
+                    <div class="d-xl-block d-flex flex-wrap justify-content-center col-md-12 col-sm-10 col-12 p-3 bg-white border border-secondary rounded shadow">
+                        <article class="container-lg">
+
+                            <!-- main title of the article -->
+                            <h1 class="h3 p-2 mb-2">عنوان مقاله :</h1>
+
+                            <!-- an image for the article -->
+                            <div class="col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1 p-1 border border-dark rounded mb-2">
+                                <img src="static/images/article.png" alt="" class="w-100">
+                            </div>
+
+                            <!-- the text -->
+                            <p class="p-2 mb-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- comments section -->
+                <section class="col-12 d-flex flex-wrap justify-content-center mt-2 mb-2">
+                    <div class="d-flex flex-wrap justify-content-center col-12 p-3 bg-white border border-secondary rounded shadow">
+                        <span class="col-xl-9 col-lg-10 col-12 mt-3 mb-3 text-right h5">
+                            <i class="fa-regular fa-comments"></i>
+                            نظرات کاربران درباره این مقاله :
+                        </span>
+
+                        <!-- comments container -->
+                        <div class="ltr-just-me col-xl-9 col-lg-10 col-12 p-2 bg-secondary rounded">
+
+                            <!-- a comment with rating -->
+                            <div class="col-xl-10 col-lg-11 col-10 p-2">
+                                <div class="card">
+                                    <div class="card-header d-flex flex-wrap align-items-center position-relative p-3">
+                                        <div class="d-sm-inline-block d-none border border-secondary rounded-circle overflow-hidden" style="height: 65px;">
+                                            <img src="static/images/profile-type-2.png" alt="user_profile" class="h-100">
+                                        </div>
+                                        <span class="h5 text-primary p-1 p-sm-3">
+                                            @نام کاربری
+                                        </span>
+                                        <span class="h6 text-success p-sm-2 p-1">
+                                            <i class="fa fa-comment"></i>
+                                            پیام / نظر کاربر:
+                                        </span>
+                                        <div class="d-lg-inline-block d-none text-warning p-2 border border-warning rounded position-absolute" style="left: 2%;">
+                                            <span class="position-relative">
+                                                <span class="text-secondary">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                </span>
+                                                <span class="my-rating-type1 d-block position-absolute" data-value="65" style="top: 0;">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                </span>
+                                            </span>
+                                            از 5
+                                        </div>
+                                        <div class="badge d-lg-none position-absolute" style="left: 0; bottom: 0;">
+                                            <span class="my-rating-type1" data-value="65">
+                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                                        <button type="button" class="btn btn-danger">
+                                            <i class="fa fa-circle-exclamation"></i>
+                                            گزارش
+                                        </button>
+                                        <button type="button" class="btn btn-success">
+                                            <i class="fa fa-reply"></i>
+                                            پاسخ
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- a comment without rating -->
+                            <div class="col-xl-10 col-lg-11 col-10 p-2">
+                                <div class="card">
+                                    <div class="card-header d-flex flex-wrap align-items-center position-relative p-3">
+                                        <div class="d-sm-inline-block d-none border border-secondary rounded-circle overflow-hidden" style="height: 65px;">
+                                            <img src="static/images/profile-type-2.png" alt="user_profile" class="h-100">
+                                        </div>
+                                        <span class="h5 text-primary p-1 p-sm-3">
+                                            @نام کاربری
+                                        </span>
+                                        <span class="h6 text-success p-sm-2 p-1">
+                                            <i class="fa fa-comment"></i>
+                                            پیام / نظر کاربر:
+                                        </span>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                                        <button type="button" class="btn btn-danger">
+                                            <i class="fa fa-circle-exclamation"></i>
+                                            گزارش
+                                        </button>
+                                        <button type="button" class="btn btn-success">
+                                            <i class="fa fa-reply"></i>
+                                            پاسخ
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- a reply to a comment -->
+                            <div class="col-xl-10 col-lg-11 col-10 p-2">
+                                <div class="card">
+                                    <div class="card-header d-flex flex-wrap align-items-center position-relative p-3">
+                                        <div class="d-sm-inline-block d-none border border-secondary rounded-circle overflow-hidden" style="height: 65px;">
+                                            <img src="static/images/profile-type-2.png" alt="user_profile" class="h-100">
+                                        </div>
+                                        <span class="h5 text-primary p-1 p-sm-3">
+                                            @نام کاربری
+                                        </span>
+                                        <span class="h6 text-secondary p-sm-2 p-1">
+                                            <i class="fa fa-reply"></i>
+                                            پاسخ
+                                        </span>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="#" class="d-block m-2 p-2 rounded bg-info text-white">
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با...
+                                        </a>
+                                        <p class="pr-5">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.</p>
+                                        <button type="button" class="btn btn-danger">
+                                            <i class="fa fa-circle-exclamation"></i>
+                                            گزارش
+                                        </button>
+                                        <button type="button" class="btn btn-success">
+                                            <i class="fa fa-reply"></i>
+                                            پاسخ
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- my comment! -->
+                            <div class="col-xl-10 col-lg-11 col-10 p-2 float-right">
+                                <div class="card">
+                                    <div class="card-header d-flex flex-wrap align-items-center position-relative p-3">
+                                        <div class="d-sm-inline-block d-none border border-secondary rounded-circle overflow-hidden" style="height: 65px;">
+                                            <img src="static/images/profile-type-2.png" alt="user_profile" class="h-100">
+                                        </div>
+                                        <span class="h5 text-primary p-1 p-sm-3">
+                                            @نام کاربری
+                                        </span>
+                                        <span class="h6 text-success p-sm-2 p-1">
+                                            <i class="fa fa-comment"></i>
+                                            پیام / نظر کاربر:
+                                        </span>
+                                        <div class="d-lg-inline-block d-none text-warning p-2 border border-warning rounded position-absolute" style="left: 2%;">
+                                            <span class="position-relative">
+                                                <span class="text-secondary">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                </span>
+                                                <span class="my-rating-type1 d-block position-absolute" data-value="65" style="top: 0;">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                </span>
+                                            </span>
+                                            از 5
+                                        </div>
+                                        <div class="badge d-lg-none position-absolute" style="left: 0; bottom: 0;">
+                                            <span class="my-rating-type1" data-value="65">
+                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                                        <button type="button" class="btn btn-danger">
+                                            <i class="fa fa-circle-exclamation"></i>
+                                            گزارش
+                                        </button>
+                                        <button type="button" class="btn btn-success">
+                                            <i class="fa fa-reply"></i>
+                                            پاسخ
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- more comments -->
+                            <button type="button" class="btn btn-outline-light">مشاهده نظرات بیشتر ...</button>
+                        </div>
+
+                        <!-- the section is for sending a comment. -->
+                        <div class="col-xl-9 col-lg-10 col-12 p-2 border border-dark rounded mt-3">
+
+                            <!-- alert -->
+                            <div class="alert alert-warning">
+                                <i class="fa fa-triangle-exclamation"></i>
+                                برای گزارش خرابی محصول یا ارائه درخواست پشتیبانی، لطفا از پنل کاربری و بخش "تیکت" اقدام نمایید.
+                            </div>
+
+                            <!-- form of send comments -->
+                            <form action="#" method="post" class="d-flex flex-wrap justify-content-center mt-2">
+
+                                <!-- rating -->
+                                <div class="col-10 p-2 border border-dark rounded mb-2">
+                                    <span class="text-nowrap">امتیاز شما به مقاله :</span>
+
+                                    <!-- my rating input -->
+                                    <span id="my-rate-input" class="ltr-just-me d-block text-nowrap text-warning float-sm-left float-none">
+                                        <span class="cursor-pointer" data-role="star" data-value="1"><i class="fa-regular fa-star"></i></span>
+                                        <span class="cursor-pointer" data-role="star" data-value="2"><i class="fa-regular fa-star"></i></span>
+                                        <span class="cursor-pointer" data-role="star" data-value="3"><i class="fa-regular fa-star"></i></span>
+                                        <span class="cursor-pointer" data-role="star" data-value="4"><i class="fa-regular fa-star"></i></span>
+                                        <span class="cursor-pointer" data-role="star" data-value="5"><i class="fa-regular fa-star"></i></span>
+
+                                        <!-- input - send value to the site backend -->
+                                        <input type="hidden" name="ar-rate" value="0" max="5" min="0" step="1">
+                                        <button type="button" class="eraser btn btn-danger badge"><i class="fa fa-eraser"></i></button>
+                                    </span>
+
+                                    <!-- alert -->
+                                    <div class="alert alert-warning mt-2 mb-0">
+                                        <i class="fa fa-triangle-exclamation"></i>
+                                        برای تعیین میزان رضایت خود از مقاله تنها میتوانید یک نمره از 1 تا 5 امتیاز وارد کنید. چنانچه قبلا اقدام به تعیین میزان رضایت نموده باشید در صورت ورود نمره جدید تنها نمره قبلی وارد شده بروزرسانی خواهد شد. درصورتی که تمایلی برای تغییر نمره میزان رضایت خود ندارید، کافیست نمره ای برای پیام خود درنظر نگیرید.
+                                    </div>
+                                </div>
+
+                                <!-- comment text -->
+                                <textarea name="ar-co-text" id="" class="form-control col-10 rounded" rows="12"></textarea>
+
+                                <!-- controls for sending comment -->
+                                <div class="col-8 d-flex flex-wrap mt-2">
+
+                                    <!-- capcha code -->
+                                    <div class="d-inline-block">
+                                        <div class="bg-danger position-relative" style="width: 180px; height: 75px;">
+                                            <a href="#" class="position-absolute text-white" style="left: 0; bottom: 0;">
+                                                <i class="fa fa-arrows-rotate"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- capcha input -->
+                                    <div class="col-12 col-md-7 col-xl d-flex flex-wrap align-items-center">
+                                        <label for="capcha-code">(کد داخل تصویر را اینجا وارد کنید:)</label>
+                                        <input type="text" id="capcha-code" class="form-control" placeholder="کد کپچا">
+                                    </div>
+
+                                    <!-- send comment -->
+                                    <div class="d-flex align-items-center p-3">
+                                        <button type="submit" class="btn btn-success text-nowrap">
+                                            <i class="fa fa-paper-plane"></i>
+                                            ارسال نظر
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- shared footer -->
+            <footer class="row">
+                <div class="container-fluid">
+
+                    <!-- first section -->
+                    <div class="row bg-dark pt-4 pb-4">
+                        <div class="col-lg-6 col-md-8 col-10 offset-lg-3 offset-md-2 offset-1">
+
+                            <!-- subscribe to the newsletter -->
+                            <form action="#" method="post" class="form-row">
+                                
+                                <div class="col-md-7 col-10">
+                                    <input type="email" name="sn-email" class="form-control" placeholder="example@example.com">
+                                </div>
+                                
+                                <div class="col-md-5 col-2">
+                                    <button type="submit" class="btn btn-outline-success btn-block">
+                                        <i class="fa-solid fa-newspaper"></i>
+                                        <span class="d-md-inline d-none">عضویت در خبرنامه</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- second section -->
+                    <div class="row bg-secondary p-4">
+
+                        <!-- useful links -->
+                        <div class="col-md-8 col-10 offset-md-2 offset-1">
+                            <a href="#" class="btn btn-link text-light footer-ulink">لینک</a>
+                            <a href="#" class="btn btn-link text-light footer-ulink">لینک</a>
+                            <a href="#" class="btn btn-link text-light footer-ulink">لینک</a>
+                            <a href="#" class="btn btn-link text-light footer-ulink">لینک</a>
+                            <a href="#" class="btn btn-link text-light footer-ulink">لینک</a>
+                        </div>
+                    </div>
+
+                    <!-- copyright section -->
+                    <div class="row p-2" style="background-color: aquamarine;">
+                        <span>تمام حقوق مادی و معنوی این سایت برای ... محفوظ می باشد و هرگونه کپی برداری نامشروع است. copyright</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- header main links menu in small pages -->
+        <!-- page cover - back of menu -->
+        <div id="hml-menu-inSP_back" class="d-none position-fixed">
+            <div class="container-fluid">
+                <div class="col-10 offset-1 bg-dark p-2 mt-5">
+                    
+                    <!-- hml-menu-inSP -->
+                    <div id="hml-menu-inSP" class="accordion"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer references -->
+        <script src="static/js/jQuery-3.7.1/jquery-3.7.1.min.js"></script>
+        <script src="static/js/bootstrap-rtl-4.6.2/bootstrap.bundle.min.js"></script>
+        <script src="static/fonts/fontawesome-free-7.3.1-web/js/all.min.js"></script>
+        <script src="static/js/shared/main.js"></script>
+
+        <!-- more scripts -->
+        <script></script>
+    </body>
+</html>
