@@ -1,0 +1,67 @@
+{% load static %}
+{% load render_partial %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- page settings -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% comment %} more settings for a spicial page {% endcomment %}
+        {% block more_page_settings %}{% endblock %}
+
+        <!-- page title -->
+        <title>{% block page_title %}Page Title{% endblock %}</title>
+        
+        <!-- page description -->
+        <meta name="description" content="{% block page_description %}{% endblock %}">
+        
+        <!-- page keywords -->
+        <meta name="keywords" content="{% block page_keywords %}{% endblock %}">
+
+        <!-- page author -->
+        <meta name="author" content="{% block page_author %}AASuser{% endblock %}">
+
+        <!-- header references -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap-rtl-4.6.2/bootstrap-rtl.min.css' %}">
+        <link rel="stylesheet" href="{% static 'fonts/fontawesome-free-7.3.1-web/css/all.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/shared/main.css' %}">
+        {% block more_header_refrences %}{% endblock %}
+
+        <!-- more styles -->
+        {% block more_page_styles %}<style></style>{% endblock %}
+    </head>
+    <body>
+
+        <!-- page contents -->
+        <div id="page-contents" class="container-fluid overflow-hidden">
+
+            {% render_partial 'header_module.views.view_public_header' %}
+
+            {% block page_contents %}{% endblock %}
+        </div>
+
+        <!-- header main links menu in small pages -->
+        <!-- page cover - back of menu -->
+        <div id="hml-menu-inSP_back" class="d-none position-fixed">
+            <div class="container-fluid">
+                <div class="col-10 offset-1 bg-dark p-2 mt-5">
+                    
+                    <!-- hml-menu-inSP -->
+                    <div id="hml-menu-inSP" class="accordion"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer references -->
+        <script src="{% static 'js/jQuery-3.7.1/jquery-3.7.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap-rtl-4.6.2/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'fonts/fontawesome-free-7.3.1-web/js/all.min.js' %}"></script>
+        <script src="{% static 'js/shared/main.js' %}"></script>
+        {% block more_footer_references %}{% endblock %}
+
+        <!-- more scripts -->
+        {% block more_page_scripts %}<script></script>{% endblock %}
+    </body>
+</html>

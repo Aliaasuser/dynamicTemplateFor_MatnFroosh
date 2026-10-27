@@ -1,0 +1,184 @@
+a{text-decoration: none !important;}
+
+#num-of-products, #num-of-user-alerts{
+    top: auto;
+    bottom: 0;
+    left: -1%;
+}
+
+.full-glass{background-color: rgba(0, 0, 0, 0);}
+
+.hover-open-angle>i,
+.hover-open-angle>svg{transition: transform 0.2s;}
+
+.hover-open-angle:hover>i,
+.hover-open-angle:hover>svg{transform: rotate(-90deg);}
+
+#header-main-section{background-color: rgb(255, 255, 225);}
+
+#header-main-links>.dropdown:hover>a,
+#header-main-links>.dropdown:hover>.dropdown-toggle{color: white !important;}
+
+#header-main-links>.dropdown:hover>.dropdown-toggle{border-color: white !important;}
+
+#header-main-links .sub-menu>.dropdown-item:hover,
+#header-main-links .sub-menu>.dropdown-item:hover>*{color: var(--dark) !important;}
+
+#header-main-links .dropleft:hover>.dropdown-toggle,
+#header-main-links .dropright:hover>.dropdown-toggle{border-color: var(--dark) !important;}
+
+#header-main-links .has-menu:hover>.sub-menu,
+#header-user-links .has-menu:hover>.sub-menu{display: block !important;}
+
+#hml-menu-inSP_back{
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(50, 50, 50, 0.5);
+    z-index: 10000;
+}
+
+.my-carousels-type1 li{
+    width: 0 !important;
+    height: 0 !important;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid aqua;
+    box-shadow: 0 0 2px rgb(108, 106, 106);
+    opacity: 100%;
+    transition: border 0.5s, box-shadow 0.5s;
+}
+.my-carousels-type1 li.active{
+    border-color: rgb(128, 128, 254);
+    box-shadow: 0 0 4px rgb(100, 100, 250);
+}
+.my-carousels-type1 .card{
+    margin: 4px;
+    box-shadow: 0 0 2px rgb(150, 150, 150);
+}
+.my-carousels-type1 .card:first-child{margin-right: 18px;}
+.my-carousels-type1 .card:last-child{margin-left: 18px;}
+
+.my-carousels-type1 .card-title{font-size: 18px;}
+.my-carousels-type1 .card-text{font-size: 14.4px;}
+.my-carousels-type1>button{
+    width: 8%;
+    height: 15%;
+    top: 42.5%;
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.footer-ulink{text-shadow: 0 0 3px rgb(165, 215, 255);}
+
+#hml-menu-inSP{
+    height: 75vh;
+    overflow-y: scroll;
+}
+#hml-menu-inSP .card-header{background-color: var(--dark);}
+#hml-menu-inSP .card-body{background-color: var(--secondary);}
+#hml-menu-inSP .card-header>a{color: white;}
+
+#myCarousel_num1>ul,
+#myCarousel_num2>ul{bottom:-7%;}
+
+
+.ltr-just-me{direction: ltr;}
+.ltr-just-me>*{direction: rtl;}
+
+.cursor-pointer{cursor: pointer;}
+
+.my-range,
+.my-range>input[type="range"],
+.my-range>div[data-role="highlight-interval"],
+.my-range>div[data-role="background-range"]{
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+}
+.my-range{
+    direction: ltr;
+    position: relative;
+}
+.my-range>input[type="range"],
+.my-range>div[data-role="highlight-interval"],
+.my-range>div[data-role="background-range"]{
+    height: 10px;
+    position: absolute;
+}
+.my-range>input[type="range"]{
+    appearance: none;
+    background: none;
+    top: calc(20% - 2px);
+    pointer-events: none;
+}
+.my-range>input[type="range"]::-webkit-slider-thumb{
+    pointer-events: initial;
+    cursor: pointer;
+}
+.my-range>input[type="range"]::-moz-range-thumb{
+    background-color: white;
+    border: 2px solid blue;
+    pointer-events: initial;
+    cursor: pointer;
+}
+.my-range>div[data-role="highlight-interval"],
+.my-range>div[data-role="background-range"]{
+    border-radius: 10px;
+    top: 20%;
+}
+.my-range>div[data-role="highlight-interval"]{background-color: blue;}
+.my-range>div[data-role="background-range"]{background-color: darkgray;}
+
+.my-range-details>label{top: -18px;}
+
+#my-search-form-container button[type="submit"]{
+    height: 34px;
+    padding: 4px 9px 4px 3px;
+    background-color: white;
+    color: rgb(185, 185, 185);
+    border: 0;
+    border-radius: 10px;
+    margin: 2px 0;
+    position: absolute;
+    left: 12px;
+    top: 0;
+}
+#my-search-form-container button[type="submit"]:hover{color: var(--primary);}
+#my-search-form-container option{cursor: pointer;}
+
+@keyframes cpi-addsls-toRight{
+    from {left: 0;}
+    to {left: 33.3%;}
+}
+@keyframes cpi-addsls-toLeft{
+    from {right: 0;}
+    to {right: 33.3%;}
+}
+
+.slides-to-right>.slide{
+    animation-name: cpi-addsls-toRight;
+    animation-duration: 1s;
+}
+.slides-to-left>.slide{
+    animation-name: cpi-addsls-toLeft;
+    animation-duration: 1s;
+}
+
+@keyframes cpi-maisl-toRight{
+    from {left: 0;}
+    to {left: 100%;}
+}
+@keyframes cpi-maisl-toLeft{
+    from {right: 0;}
+    to {right: 100%;}
+}
+
+.slide-to-right>div{
+    animation-name: cpi-maisl-toRight;
+    animation-duration: 1s;
+}
+.slide-to-left>div{
+    animation-name: cpi-maisl-toLeft;
+    animation-duration: 1s;
+}
