@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     # global component
     'header_module',
     # internal apps
-    
+    'account_module',
     # external apps
     'django_render_partial',
 ]
@@ -87,6 +87,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Auth user model
+AUTH_USER_MODEL = 'account_module.User'
 
 
 # Password validation
