@@ -2,7 +2,15 @@ from django.contrib import admin
 from . import models
 
 # Register your models here.
-class HML_admin(admin.ModelAdmin):
+class HeaderMainLinks_admin(admin.ModelAdmin):
     pass
 
-admin.site.register(models.HeaderMainLinks_model, HML_admin)
+class HeaderLogo_admin(admin.ModelAdmin):
+    pass
+
+class HeaderNavbarLinks_admin(admin.ModelAdmin):
+    pass
+
+admin.site.register(models.HeaderMainLinks_model, HeaderMainLinks_admin)
+admin.site.register(models.HeaderLogo_model, HeaderLogo_admin)
+admin.site.register(models.HeaderNavbarLinks_model, HeaderNavbarLinks_admin)

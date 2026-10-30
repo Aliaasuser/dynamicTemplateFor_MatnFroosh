@@ -1,0 +1,4 @@
+#header-main-links>div.active>a,
+#header-main-links>div.active>div{color: white !important;}
+
+#header-main-links>div.active>div{border-color: white !important;}

@@ -1,0 +1,19 @@
+{% load render_partial %}
+{% if hml_obj.subobjs %}
+    <div class="{% if hml_obj.url_name and hml_obj.url_name == url_name or hml_obj.url_name is none and hml_obj.url == url %}active {% endif %}btn btn-outline-dark btn-group d-md-inline-block d-none p-0 ml-2 dropdown" data-role="menu">
+
+        <a {% if hml_obj.url_name and hml_obj.url_name != url_name %}href="{% url hml_obj.url_name %}" {% elif hml_obj.url_name is none and hml_obj.url != url %}href="{{ hml_obj.url }}" {% endif %}{% if hml_obj.title %}title="{{ hml_obj.title }}" {% endif %}class="d-inline-block full-glass pt-2 pb-2 pr-3 pl-3{% if hml_obj.url_name and hml_obj.url_name == url_name or hml_obj.url_name is none and hml_obj.url == url %}{% else %} text-dark{% endif %}">{{ hml_obj.text }}</a>
+
+        <div class="dropdown-toggle has-menu full-glass d-inline-block p-2 border-right border-dark text-dark">
+            <div class="dropdown-menu sub-menu m-0 bg-dark">
+                    
+{% for obj in hml_obj.subobjs %}
+    {% render_partial 'header_module.views.view_hml_has_submenu' 'header_module/components/obj_in_submenu.html' obj %}
+{% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% else %}
+    <a {% if hml_obj.url_name and hml_obj.url_name != url_name %}href="{% url hml_obj.url_name %}" {% elif hml_obj.url_name is none and hml_obj.url != url %}href="{{ hml_obj.url }}" {% endif %}{% if hml_obj.title %}title="{{ hml_obj.title }}" {% endif %}class="{% if hml_obj.url_name and hml_obj.url_name == url_name or hml_obj.url_name is none and hml_obj.url == url %}active {% endif %}btn btn-outline-dark d-md-inline-block d-none pt-2 pb-2 pr-3 pl-3 ml-2">{{ hml_obj.text }}</a>
+{% endif %}

@@ -132,6 +132,11 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
+# Media files (Images, Videos, ...)
+
+MEDIA_URL = 'media/'
+
+MEDIA_ROOT = BASE_DIR / 'uploaded_files/media/'
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration

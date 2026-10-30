@@ -1,0 +1,19 @@
+{% load render_partial %}
+{% if hml_obj.subobjs %}
+    <div class="dropdown-item dropleft text-white pt-0 pb-0 pr-0 pl-5" data-role="menu">
+
+        <a {% if hml_obj.url_name %}href="{% url hml_obj.url_name %}" {% else %}href="{{ hml_obj.url }}" {% endif %}{% if hml_obj.title %}title="{{ hml_obj.title }}" {% endif %}class="btn-block full-glass d-inline-block pt-1 pb-1 pr-4 text-white">{{ hml_obj.text }}</a>
+
+        <div class="dropdown-toggle has-menu full-glass d-inline-block pr-4 pl-2 border-right border-white">
+            <div class="dropdown-menu sub-menu m-0 bg-dark">
+
+{% for obj in hml_obj.subobjs %}
+{% render_partial 'header_module.views.view_hml_has_submenu' 'header_module/components/obj_in_submenu.html' obj %}
+{% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% else %}
+    <a {% if hml_obj.url_name %}href="{% url hml_obj.url_name %}" {% else %}href="{{ hml_obj.url }}" {% endif %}{% if hml_obj.title %}title="{{ hml_obj.title }}" {% endif %}class="dropdown-item text-white">{{ hml_obj.text }}</a>
+{% endif %}
