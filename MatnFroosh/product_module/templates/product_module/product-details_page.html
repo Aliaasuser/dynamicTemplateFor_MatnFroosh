@@ -1,0 +1,414 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+{% load my_filters %}
+
+{% block page_contents %}
+            <div class="row ltr-just-me mt-3 mb-md-3">
+
+                <!-- details section -->
+                <section class="col-xl-8 col-md-7 col-12 d-flex flex-wrap justify-content-center mt-2 mb-2">
+                    <div class="d-xl-block d-flex flex-wrap justify-content-center col-md-12 col-sm-10 col-12 p-3 bg-white border border-secondary rounded shadow">
+
+                        <div class="font-weight-bold text-secondary small p-2">
+                            دسته بندی(های) مرتبط : |
+{% for category in product.joined_categories %}
+                            <a class="text-primary" href="{% url 'shop_page' %}?product-category={{ category.title|mySlugify }}" title="دسته بندی : {{ category.title }}">{{ category.title }}</a> |
+{% endfor %}
+                        </div>
+
+                        <!-- product images carousel -->
+                        <div class="col-xl-6 col-lg-9 col-md-12 col-sm-10 col-12 float-xl-left">
+                            <div id="carousel-product-images" class="bg-light p-2 border border-dark rounded shadow position-relative">
+
+                                <!-- big slide -->
+                                <div class="cpi-main-slide d-flex flex-nowrap align-items-center">
+                                    <div class="col-12 p-0">
+                                        <img src="{% if product.image %}/media/{{ product.image }}{% else %}{% static 'images/product.png' %}{% endif %}" class="w-100 mb-2" alt="product image">
+                                    </div>
+                                </div>
+
+                                <!-- small slides -->
+                                <div class="cpi-additional-slides d-flex flex-nowrap align-items-center m-0">
+                                    <div class="slide col-4 position-relative" style="animation-duration: 1s;">
+                                        <div class="p-1 rounded bg-info">
+                                            <img src="{% if product.details.image1 %}/media/{{ product.details.image1 }}{% elif product.image %}/media/{{ product.image }}{% else %}{% static 'images/product.png' %}{% endif %}" class="w-100">
+                                        </div>
+                                    </div>
+                                    <div class="slide col-4 position-relative" style="animation-duration: 1s;">
+                                        <div class="p-1 rounded bg-info">
+                                            <img src="{% if product.details.image2 %}/media/{{ product.details.image2 }}{% elif product.details.image1 %}/media/{{ product.details.image1 }}{% elif product.image %}/media/{{ product.image }}{% else %}{% static 'images/product.png' %}{% endif %}" class="w-100">
+                                        </div>
+                                    </div>
+                                    <div class="slide col-4 position-relative" style="animation-duration: 1s;">
+                                        <div class="p-1 rounded bg-info">
+                                            <img src="{% if product.details.image3 %}/media/{{ product.details.image3 }}{% elif product.details.image2 %}/media/{{ product.details.image2 }}{% elif product.details.image1 %}/media/{{ product.details.image1 }}{% elif product.image %}/media/{{ product.image }}{% else %}{% static 'images/product.png' %}{% endif %}" class="w-100">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- next and prev buttons -->
+                                <button class="next-btn btn btn-dark pt-3 pb-3 pr-2 pl-2 rounded-0 position-absolute" style="opacity: 0.75; right: 0; bottom: 6.5%;">
+                                    <i class="fa fa-angle-right"></i>
+                                </button>
+                                <button class="prev-btn btn btn-dark pt-3 pb-3 pr-2 pl-2 rounded-0 position-absolute" style="opacity: 0.75; left: 0; bottom: 6.5%;">
+                                    <i class="fa fa-angle-left"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- description -->
+                        <div class="col-xl-6 col-lg-9 col-md-12 col-12 float-xl-right">
+                            <div class="bg-white p-2 border border-dark mt-xl-0 mt-3 rounded shadow">
+                                <div class="card">
+
+                                    <!-- title of the product -->
+                                    <div class="card-header">
+                                        <h1 id="product-subject" class="h5">{{ product.title }}</h1>
+                                    </div>
+
+                                    <!-- details text -->
+                                    <div class="card-body">
+                                        <p class="mb-1"><i class="fa fa-pen"></i> {{ product.short_description }}</p>
+                                        <p class="mb-2 small">{% if product.details.long_description %}{{ product.details.long_description }}{% else %}توضیحات بیشتری وجود ندارد!{% endif %}</p>
+                                        <hr>
+                                        <div class="font-weight-bold small">
+                                            <i class="fa fa-calendar"></i> قرارگیری بر روی سایت : <span>{{ product.details.creation_date|convertToMyJDate }}</span><br>
+                                            <i class="fa fa-clock"></i> آخرین بروزرسانی : <span>{{ product.details.last_update|convertToMyJDateTime }}</span>
+                                        </div>
+                                        <div class="font-weight-bold small">
+                                            <i class="fa fa-user"></i> مالک اثر : <a href="{% url 'shop_page' %}?product-owner={{ product.owner.connector_to_powners|first|getAttr:'alias' }}" title="همه محصولات تحت مالکیت {{ product.owner.get_full_name }}">{{ product.owner.get_full_name }}</a>
+                                        </div>
+                                        <div class="font-weight-bold small">
+                                            <i class="fa fa-users-gear"></i> سازندگان/طراحان این محصول :
+{% for creator in product.details.pcreators %}
+                                            <a href="{% url 'shop_page' %}?product-creator={{ creator.connector_to_pcreators|first|getAttr:'alias' }}" title="همه محصولات ساخته شده توسط {{ creator.get_full_name }}">{{ creator.get_full_name }}</a>
+                                            {% if creator != product.details.pcreators|last %}و{% endif %}
+{% endfor %}
+
+                                        </div>
+                                        <hr>
+                                        <div>
+                                            <span class="font-weight-bold small"><i class="fa fa-tag"></i> برچسب های این محصول :</span>
+{% for tag in product.joined_tags %}
+                                            <a href="{% url 'shop_page' %}?tag={{ tag|mySlugify }}" class="badge badge-info">#{{ tag }}</a>
+{% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- product aside -->
+                <aside class="col-xl-4 col-md-5 col-12 d-flex justify-content-center p-2 pr-3">
+                    <div class="col-md-12 col-sm-8 col-9 p-xl-3 p-md-2 p-3 border border-dark rounded shadow">
+                        <div class="p-xl-2 p-md-1 p-2 border border-dark rounded shadow-sm">
+
+                            <!-- product price -->
+                            <div class="btn-block text-success p-3 border border-success rounded">
+                                <div class="pr-1 pl-1">
+                                    <span class="font-weight-bold h5">قیمت تمام شده :</span>
+                                    <span class="float-left">{{ product.price }} تومان</span>
+                                </div>
+                            </div>
+
+                            <!-- number of sales -->
+                            <div class="btn-block text-info p-2 border border-info rounded">
+                                <div class="pr-3 pl-3">
+                                    <span>تعداد فروش :</span>
+                                    <span class="float-left">{{ product.details.num_of_sales }} تا</span>
+                                </div>
+                            </div>
+
+                            <!-- number of stars in rating -->
+                            <div class="btn-block text-warning p-2 border border-warning rounded position-relative">
+                                <div class="pr-3 pl-3">
+                                    <span>امتیاز :</span>
+                                    <span>
+                                        <span class="float-left text-secondary">
+                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        </span>
+                                        <span class="my-rating-type1 ml-4 position-absolute float-left" style="left: 0;" data-value="{{ product.rating|multiplicationBy:20 }}">
+                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        </span>
+                                    </span>
+                                    از 5
+                                </div>
+                            </div>
+
+                            <!-- features -->
+                            <div class="card mt-2 border-0">
+                                <button type="button" class="card-header btn bg-white text-right text-secondary pt-2 pb-2 pl-2 border rounded-bottom border-secondary" data-toggle="collapse" data-target="#product-features">
+                                    <span>ویژگی ها و نکات</span>
+                                    <i class="fa fa-angle-down float-left position-relative" style="top: 5px;"></i>
+                                </button>
+
+                                <!-- list of features -->
+                                <div id="product-features" class="card-body pt-2 pb-2 border border-top-0 border-secondary rounded-bottom">
+                                    <ul class="list-group text-secondary" style="list-style: none;">
+{% for wf in product.details.pwith_features %}
+                                        <li class="p-1"><i class="fa fa-check text-success ml-1"></i>{{ wf.title }}</li>
+{% endfor %}
+{% for wof in product.details.pwithout_features %}
+                                        <li class="p-1"><i class="fa fa-xmark text-danger ml-1"></i>{{ wof.title }}</li>
+{% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- add to shopping basket and view preview buttons -->
+                            <div class="d-flex mt-2">
+                                <div class="d-inline-block">
+                                    <button type="button" class="btn btn-success btn-block" title="افزودن به سبد خرید">
+                                        <i class="fa fa-basket-shopping"></i>
+                                    </button>
+                                </div>
+                                <div class="col pl-0">
+                                    <a {% if product.details.has_preview %}href="{% url 'product-preview_page' product.slug %}" {% endif %}class="btn btn-info btn-block{% if not product.details.has_preview %} disabled{% endif %}">
+                                        <i class="fa fa-desktop"></i>
+                                        <span>پیش نمایش</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- comments section -->
+                <section class="col-12 d-flex flex-wrap justify-content-center mt-2 mb-2">
+                    <div class="d-flex flex-wrap justify-content-center col-12 p-3 bg-white border border-secondary rounded shadow">
+                        <span class="col-xl-9 col-lg-10 col-12 mt-3 mb-3 text-right h5">
+                            <i class="fa-regular fa-comments"></i>
+                            نظرات کاربران درباره این محصول :
+                        </span>
+
+                        <!-- comments container -->
+                        <div class="ltr-just-me col-xl-9 col-lg-10 col-12 p-2 bg-secondary rounded">
+                            
+                            <!-- a comment with rating -->
+                            <div class="col-xl-10 col-lg-11 col-10 p-2">
+                                <div class="card">
+                                    <div class="card-header d-flex flex-wrap align-items-center position-relative p-3">
+                                        <div class="d-sm-inline-block d-none border border-secondary rounded-circle overflow-hidden" style="height: 65px;">
+                                            <img src="{% static 'images/profile-type-2.png' %}" alt="user_profile" class="h-100">
+                                        </div>
+                                        <span class="h5 text-primary p-1 p-sm-3">
+                                            @نام کاربری
+                                        </span>
+                                        <span class="h6 text-success p-sm-2 p-1">
+                                            <i class="fa fa-comment"></i>
+                                            پیام / نظر کاربر:
+                                        </span>
+                                        <div class="d-lg-inline-block d-none text-warning p-2 border border-warning rounded position-absolute" style="left: 2%;">
+                                            <span class="position-relative">
+                                                <span class="text-secondary">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                </span>
+                                                <span class="my-rating-type1 d-block position-absolute" data-value="65" style="top: 0; right: 0;">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                </span>
+                                            </span>
+                                            از 5
+                                        </div>
+                                        <div class="badge d-lg-none position-absolute" style="left: 0; bottom: 0;">
+                                            <span class="my-rating-type1" data-value="65">
+                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                                        <button type="button" class="btn btn-danger">
+                                            <i class="fa fa-circle-exclamation"></i>
+                                            گزارش
+                                        </button>
+                                        <button type="button" class="btn btn-success">
+                                            <i class="fa fa-reply"></i>
+                                            پاسخ
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- a comment without rating -->
+                            <div class="col-xl-10 col-lg-11 col-10 p-2">
+                                <div class="card">
+                                    <div class="card-header d-flex flex-wrap align-items-center position-relative p-3">
+                                        <div class="d-sm-inline-block d-none border border-secondary rounded-circle overflow-hidden" style="height: 65px;">
+                                            <img src="{% static 'images/profile-type-2.png' %}" alt="user_profile" class="h-100">
+                                        </div>
+                                        <span class="h5 text-primary p-1 p-sm-3">
+                                            @نام کاربری
+                                        </span>
+                                        <span class="h6 text-success p-sm-2 p-1">
+                                            <i class="fa fa-comment"></i>
+                                            پیام / نظر کاربر:
+                                        </span>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                                        <button type="button" class="btn btn-danger">
+                                            <i class="fa fa-circle-exclamation"></i>
+                                            گزارش
+                                        </button>
+                                        <button type="button" class="btn btn-success">
+                                            <i class="fa fa-reply"></i>
+                                            پاسخ
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- a reply to a comment -->
+                            <div class="col-xl-10 col-lg-11 col-10 p-2">
+                                <div class="card">
+                                    <div class="card-header d-flex flex-wrap align-items-center position-relative p-3">
+                                        <div class="d-sm-inline-block d-none border border-secondary rounded-circle overflow-hidden" style="height: 65px;">
+                                            <img src="{% static 'images/profile-type-2.png' %}" alt="user_profile" class="h-100">
+                                        </div>
+                                        <span class="h5 text-primary p-1 p-sm-3">
+                                            @نام کاربری
+                                        </span>
+                                        <span class="h6 text-secondary p-sm-2 p-1">
+                                            <i class="fa fa-reply"></i>
+                                            پاسخ
+                                        </span>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="#" class="d-block m-2 p-2 rounded bg-info text-white">
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با...
+                                        </a>
+                                        <p class="pr-5">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.</p>
+                                        <button type="button" class="btn btn-danger">
+                                            <i class="fa fa-circle-exclamation"></i>
+                                            گزارش
+                                        </button>
+                                        <button type="button" class="btn btn-success">
+                                            <i class="fa fa-reply"></i>
+                                            پاسخ
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- my comment! -->
+                            <div class="col-xl-10 col-lg-11 col-10 p-2 float-right">
+                                <div class="card">
+                                    <div class="card-header d-flex flex-wrap align-items-center position-relative p-3">
+                                        <div class="d-sm-inline-block d-none border border-secondary rounded-circle overflow-hidden" style="height: 65px;">
+                                            <img src="{% static 'images/profile-type-2.png' %}" alt="user_profile" class="h-100">
+                                        </div>
+                                        <span class="h5 text-primary p-1 p-sm-3">
+                                            @نام کاربری
+                                        </span>
+                                        <span class="h6 text-success p-sm-2 p-1">
+                                            <i class="fa fa-comment"></i>
+                                            پیام / نظر کاربر:
+                                        </span>
+                                        <div class="d-lg-inline-block d-none text-warning p-2 border border-warning rounded position-absolute" style="left: 2%;">
+                                            <span class="position-relative">
+                                                <span class="text-secondary">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                </span>
+                                                <span class="my-rating-type1 d-block position-absolute" data-value="65" style="top: 0; right: 0;">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                </span>
+                                            </span>
+                                            از 5
+                                        </div>
+                                        <div class="badge d-lg-none position-absolute" style="left: 0; bottom: 0;">
+                                            <span class="my-rating-type1" data-value="65">
+                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                                        <button type="button" class="btn btn-danger">
+                                            <i class="fa fa-circle-exclamation"></i>
+                                            گزارش
+                                        </button>
+                                        <button type="button" class="btn btn-success">
+                                            <i class="fa fa-reply"></i>
+                                            پاسخ
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- more comments -->
+                            <button type="button" class="btn btn-outline-light">مشاهده نظرات بیشتر ...</button>
+                        </div>
+
+                        <!-- the section is for sending a comment. -->
+                        <div class="col-xl-9 col-lg-10 col-12 p-2 border border-dark rounded mt-3">
+
+                            <!-- alert -->
+                            <div class="alert alert-warning">
+                                <i class="fa fa-triangle-exclamation"></i>
+                                برای گزارش خرابی محصول یا ارائه درخواست پشتیبانی، لطفا از پنل کاربری و بخش "تیکت" اقدام نمایید.
+                            </div>
+
+                            <!-- form of send comments -->
+                            <form action="#" method="post" class="d-flex flex-wrap justify-content-center mt-2">
+
+                                <!-- rating -->
+                                <div class="col-10 p-2 border border-dark rounded mb-2">
+                                    <span class="text-nowrap">امتیاز شما به محصول :</span>
+
+                                    <!-- my rating input -->
+                                    <span id="my-rate-input" class="ltr-just-me d-block text-nowrap text-warning float-sm-left">
+                                        <span class="cursor-pointer" data-role="star" data-value="1"><i class="fa-regular fa-star"></i></span>
+                                        <span class="cursor-pointer" data-role="star" data-value="2"><i class="fa-regular fa-star"></i></span>
+                                        <span class="cursor-pointer" data-role="star" data-value="3"><i class="fa-regular fa-star"></i></span>
+                                        <span class="cursor-pointer" data-role="star" data-value="4"><i class="fa-regular fa-star"></i></span>
+                                        <span class="cursor-pointer" data-role="star" data-value="5"><i class="fa-regular fa-star"></i></span>
+
+                                        <!-- input - send value to the site backend -->
+                                        <input type="hidden" value="0" max="5" min="0" step="1">
+                                        <button type="button" class="eraser btn btn-danger badge"><i class="fa fa-eraser"></i></button>
+                                    </span>
+
+                                    <!-- alert -->
+                                    <div class="alert alert-warning mt-2 mb-0">
+                                        <i class="fa fa-triangle-exclamation"></i>
+                                        برای تعیین میزان رضایت خود از محصول تنها میتوانید یک نمره از 1 تا 5 امتیاز وارد کنید. چنانچه قبلا اقدام به تعیین میزان رضایت نموده باشید در صورت ورود نمره جدید تنها نمره قبلی وارد شده بروزرسانی خواهد شد. درصورتی که تمایلی برای تغییر نمره میزان رضایت خود ندارید، کافیست نمره ای برای پیام خود درنظر نگیرید.
+                                    </div>
+                                </div>
+
+                                <!-- comment text -->
+                                <textarea name="" id="" class="form-control col-10 rounded" rows="12"></textarea>
+
+                                <!-- controls for sending comments -->
+                                <div class="col-8 d-flex flex-wrap mt-2">
+
+                                    <!-- capcha code -->
+                                    <div class="d-inline-block">
+                                        <div class="bg-danger position-relative" style="width: 180px; height: 75px;">
+                                            <a href="#" class="position-absolute text-white" style="left: 0; bottom: 0;">
+                                                <i class="fa fa-arrows-rotate"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- capcha input -->
+                                    <div class="col-12 col-md-7 col-xl d-flex flex-wrap align-items-center">
+                                        <label for="capcha-code">(کد داخل تصویر را اینجا وارد کنید:)</label>
+                                        <input type="text" id="capcha-code" class="form-control" placeholder="کد کپچا">
+                                    </div>
+
+                                    <!-- send comment -->
+                                    <div class="d-flex align-items-center p-3">
+                                        <button type="submit" class="btn btn-success text-nowrap">
+                                            <i class="fa fa-paper-plane"></i>
+                                            ارسال نظر
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+{% endblock %}

@@ -2,3 +2,15 @@
 #header-main-links>div.active>div{color: white !important;}
 
 #header-main-links>div.active>div{border-color: white !important;}
+
+.card-text-h105{
+    height: 105px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-text-h50{
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

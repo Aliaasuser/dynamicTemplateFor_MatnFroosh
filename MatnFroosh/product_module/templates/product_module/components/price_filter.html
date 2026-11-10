@@ -1,0 +1,49 @@
+                            <!-- filter with price -->
+                            <div class="p-xl-2 p-md-1 p-2 border border-dark rounded shadow-sm mb-2">
+                                <h4 class="h4 small m-2 text-success">براساس قیمت:</h4>
+
+                                <!-- type filter -->
+                                <div id="price-filter" class="btn-group-toggle mt-3" data-toggle="buttons">
+
+                                    <!-- types -->
+                                    <div class="btn-group btn-block">
+                                        <label class="btn btn-outline-success pr-0 pl-0">
+                                            <input type="radio" name="group-type1" value="option1" id="option1"> رایگان
+                                        </label>
+                                        <label class="btn btn-outline-success pr-0 pl-0">
+                                            <input type="radio" name="group-type1" value="option2" id="option2"> اشتراک
+                                        </label>
+                                        <label class="btn btn-outline-success pr-0 pl-0">
+                                            <input type="radio" name="group-type1" value="option3" id="option3"> اعضای ویژه
+                                        </label>
+                                    </div>
+
+                                    <!-- public type -->
+                                    <!-- has a price range panel -->
+                                    <div class="btn-group btn-block">
+                                        <label class="btn btn-outline-success has-panel pr-0 pl-0 active">
+                                            <input type="radio" name="group-type1" value="all" id="option4" checked> همه
+                                        </label>
+                                    </div>
+
+                                    <!-- price range panel -->
+                                    <div class="panel col-12 mt-4 mb-3 d-none" data-owner-id="option4">
+
+                                        <!-- appreance of range input -->
+                                        <div class="my-range pt-3 pb-3">
+                                            <div data-role="background-range"></div>
+                                            <div data-role="highlight-interval"></div>
+                                            <input type="range" data-role="min" min="0" max="100" step="0.5" value="30">
+                                            <input type="range" data-role="max" min="0" max="100" step="0.5" value="70">
+                                        </div>
+
+                                        <!-- range input with number type -->
+                                        <div class="my-range-details row position-relative mt-4">
+                                            <input type="number" data-role="min" min="0" max="100" step="0.5" name="my-range-min" id="my-range-min" class="col-4 offset-1">
+                                            <input type="number" data-role="max" min="0" max="100" step="0.5" name="my-range-max" id="my-range-max" class="col-4 offset-2">
+                                            <label for="my-range-min" class="badge badge-warning position-absolute offset-1">حداقل:</label>
+                                            <label for="my-range-max" class="badge badge-warning position-absolute offset-7">حداکثر:</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>

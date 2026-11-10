@@ -1,0 +1,86 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+{% load render_partial %}
+
+{% block page_contents %}
+            <!-- page contents -->
+            <div class="row ltr-just-me mt-3 mb-md-3">
+                <section class="col-lg-9 col-md-8 col-12 d-flex flex-wrap mt-md-5 mt-2 mb-md-5 mb-2">
+
+                    <!-- search in products -->
+                    <div id="my-search-form-container" class="col-12 d-flex flex-wrap align-items-center justify-content-center pt-3 pb-3 rounded mb-5">
+
+{% render_partial 'product_module.views.search_in_products' %}
+                    </div>
+
+                    <!-- products -->
+                    <div class="col-12 d-flex flex-wrap justify-content-center p-0 pb-5 bg-white border border-secondary rounded shadow">
+
+                        <!-- product cards -->
+
+{% for product in products %}
+    {% include 'product_module/components/product_card.html' %}
+{% endfor %}
+
+{% if is_paginated %}
+                        <!-- paginator -->
+                        <nav class="position-absolute d-flex mb-1" style="bottom: -5px;">
+                            <ul class="pagination">
+    {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a href="?page=1" class="page-link edit-filter" data-filter-name="page" data-filter-value="1">&laquo;</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link edit-filter" data-filter-name="page" data-filter-value="{{ page_obj.previous_page_number }}">&lt;</a>
+                                </li>
+    {% endif %}
+    {% if page_obj_md.is_pre_ellipsis %}
+                                <li class="page-item d-none d-sm-block disabled">
+                                    <span class="page-link">...</span>
+                                </li>
+    {% endif %}
+
+    {% for n in page_obj_md.page_range %}
+                                <li class="page-item{% if n == page_obj.number %} active{% else %} d-none d-sm-block{% endif %}">
+                                    <a href="?page={{ n }}" class="page-link edit-filter" data-filter-name="page" data-filter-value="{{ n }}">{{ n }}</a>
+                                </li>
+    {% endfor %}
+
+    {% if page_obj_md.is_next_ellipsis %}
+                                <li class="page-item d-none d-sm-block disabled">
+                                    <span class="page-link">...</span>
+                                </li>
+    {% endif %}
+    {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a href="?page={{ page_obj.next_page_number }}" class="page-link edit-filter" data-filter-name="page" data-filter-value="{{ page_obj.next_page_number }}">&gt;</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="?page={{ page_obj.paginator.num_pages }}" class="page-link edit-filter" data-filter-name="page" data-filter-value="{{ page_obj.paginator.num_pages }}">&raquo;</a>
+                                </li>
+    {% endif %}
+                            </ul>
+                            <div class="alert d-block d-sm-none d-xl-block small text-info p-2 pb-1 mr-2">{{ page_obj.paginator.num_pages }} صفحه <span class="d-none d-xl-inline">پیدا شد!</span></div>
+                        </nav>
+{% endif %}
+                    </div>
+                </section>
+
+                <!-- aside -->
+                <aside class="col-lg-3 col-md-4 col-12 d-flex justify-content-center p-2">
+                    <div class="col-md-12 col-sm-8 col-9 p-xl-3 p-md-2 p-3 border border-dark rounded shadow">
+
+                        <!-- filters -->
+                        <form action="#" method="get">
+
+{% render_partial 'product_module.views.filtering_products_with_price' %}
+
+{% render_partial 'product_module.views.filtering_products_with_categories' %}
+
+                            <!-- apply filters -->
+                            <button type="submit" class="btn btn-outline-primary btn-block shadow-sm mt-2">اعمال</button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+{% endblock %}

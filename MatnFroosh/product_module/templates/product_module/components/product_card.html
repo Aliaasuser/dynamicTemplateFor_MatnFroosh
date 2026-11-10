@@ -1,0 +1,39 @@
+{% load static %}
+{% load my_filters %}
+                        <div class="col-xl-3 col-lg-4 col-md-8 col-sm-6 col-9 p-2">
+                            <div class="card shadow">
+                                <img src="{% if product.image %}/media/{{ product.image }}{% else %}{% static 'images/card-type-1.png' %}{% endif %}" class="card-img-top" alt="{{ product.title }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ product.title }}</h5>
+                                    <p class="card-text card-text-h105 small">{{ product.short_description|limitText:33 }}</p>
+                                    <div class="font-weight-bold small">
+                                        مالک اثر : <a href="?product-owner={{ product.owner.connector_to_powners|first|getAttr:'alias' }}" title="همه محصولات {{ product.owner.get_full_name }}">{{ product.owner.get_full_name }}</a><br>
+                                        امتیاز محصول :
+                                        <span class="badge">
+                                            <span class="my-rating-type1" data-value="{{ product.rating|multiplicationBy:20 }}">
+                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                            </span>
+                                        </span><br>
+                                        قیمت :
+                                        {{ product.price }} تومان
+                                    </div>
+                                    <div class="card-text-h50">
+
+{% for tag in product.joined_tags %}
+                                        <a href="?tag={{ tag|mySlugify }}" class="badge badge-info add-filter" data-filter="tag={{ tag|mySlugify }}">{{ tag }}</a>
+{% endfor %}
+
+                                    </div>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between">
+                                    <a href="{% url 'shop_page' %}product-details/{{ product.slug }}/" class="btn btn-outline-info badge">
+                                        <i class="fa fa-circle-info"></i>
+                                        <span>جزئیات</span>
+                                    </a>
+                                    <button class="btn btn-outline-success badge">
+                                        <i class="fa fa-circle-plus"></i>
+                                        <span>سبد خرید</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
