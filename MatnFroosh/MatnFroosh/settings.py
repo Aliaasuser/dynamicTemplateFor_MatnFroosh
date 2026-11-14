@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'my_template_tags',
     'account_module',
     'product_module',
+    'comment_module',
     # external apps
     'django_render_partial',
 ]

@@ -1,0 +1,91 @@
+{% load static %}
+
+                <!-- comments section -->
+                <section class="col-12 d-flex flex-wrap justify-content-center mt-2 mb-2">
+                    <div class="d-flex flex-wrap justify-content-center col-12 p-3 bg-white border border-secondary rounded shadow">
+                        <span class="col-xl-9 col-lg-10 col-12 mt-3 mb-3 text-right h5">
+                            <i class="fa-regular fa-comments"></i>
+                            نظرات کاربران درباره این محصول :
+                        </span>
+
+                        <!-- comments container -->
+                        <div id="comments-container" class="my-comment ltr-just-me col-xl-9 col-lg-10 col-12 p-2 bg-secondary rounded">
+
+{% for comment in comments %}
+    {% include 'comment_module/components/sample_comment.html' %}
+{% endfor %}
+
+{% if not is_complete %}
+                            <button type="button" id="more-comments" class="btn btn-outline-light">مشاهده نظرات بیشتر ...</button>
+{% endif %}
+                        </div>
+
+                        <!-- the section is for sending a comment. -->
+                        <div class="col-xl-9 col-lg-10 col-12 p-2 border border-dark rounded mt-3">
+
+                            <!-- alert -->
+                            <div class="alert alert-warning">
+                                <i class="fa fa-triangle-exclamation"></i>
+                                برای گزارش خرابی محصول یا ارائه درخواست پشتیبانی، لطفا از پنل کاربری و بخش "تیکت" اقدام نمایید.
+                            </div>
+
+                            <!-- form of send comments -->
+                            <form action="#" method="post" class="d-flex flex-wrap justify-content-center mt-2">
+
+                                <!-- rating -->
+                                <div class="col-10 p-2 border border-dark rounded mb-2">
+                                    <span class="text-nowrap">امتیاز شما به محصول :</span>
+
+                                    <!-- my rating input -->
+                                    <span id="my-rate-input" class="ltr-just-me d-block text-nowrap text-warning float-sm-left">
+                                        <span class="cursor-pointer" data-role="star" data-value="1"><i class="fa-regular fa-star"></i></span>
+                                        <span class="cursor-pointer" data-role="star" data-value="2"><i class="fa-regular fa-star"></i></span>
+                                        <span class="cursor-pointer" data-role="star" data-value="3"><i class="fa-regular fa-star"></i></span>
+                                        <span class="cursor-pointer" data-role="star" data-value="4"><i class="fa-regular fa-star"></i></span>
+                                        <span class="cursor-pointer" data-role="star" data-value="5"><i class="fa-regular fa-star"></i></span>
+
+                                        <!-- input - send value to the site backend -->
+                                        <input type="hidden" value="0" max="5" min="0" step="1">
+                                        <button type="button" class="eraser btn btn-danger badge"><i class="fa fa-eraser"></i></button>
+                                    </span>
+
+                                    <!-- alert -->
+                                    <div class="alert alert-warning mt-2 mb-0">
+                                        <i class="fa fa-triangle-exclamation"></i>
+                                        برای تعیین میزان رضایت خود از محصول تنها میتوانید یک نمره از 1 تا 5 امتیاز وارد کنید. چنانچه قبلا اقدام به تعیین میزان رضایت نموده باشید در صورت ورود نمره جدید تنها نمره قبلی وارد شده بروزرسانی خواهد شد. درصورتی که تمایلی برای تغییر نمره میزان رضایت خود ندارید، کافیست نمره ای برای پیام خود درنظر نگیرید.
+                                    </div>
+                                </div>
+
+                                <!-- comment text -->
+                                <textarea name="" id="" class="form-control col-10 rounded" rows="12"></textarea>
+
+                                <!-- controls for sending comments -->
+                                <div class="col-8 d-flex flex-wrap mt-2">
+
+                                    <!-- capcha code -->
+                                    <div class="d-inline-block">
+                                        <div class="bg-danger position-relative" style="width: 180px; height: 75px;">
+                                            <a href="#" class="position-absolute text-white" style="left: 0; bottom: 0;">
+                                                <i class="fa fa-arrows-rotate"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- capcha input -->
+                                    <div class="col-12 col-md-7 col-xl d-flex flex-wrap align-items-center">
+                                        <label for="capcha-code">(کد داخل تصویر را اینجا وارد کنید:)</label>
+                                        <input type="text" id="capcha-code" class="form-control" placeholder="کد کپچا">
+                                    </div>
+
+                                    <!-- send comment -->
+                                    <div class="d-flex align-items-center p-3">
+                                        <button type="submit" class="btn btn-success text-nowrap">
+                                            <i class="fa fa-paper-plane"></i>
+                                            ارسال نظر
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>

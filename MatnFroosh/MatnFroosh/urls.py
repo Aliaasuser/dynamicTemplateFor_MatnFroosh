@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/', views.test),
     path('shop/', include('product_module.urls')),
+    path('comments/', include('comment_module.urls')),
     path('home/', views.test, name='home_page')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

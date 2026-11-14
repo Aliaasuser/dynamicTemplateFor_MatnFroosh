@@ -1,0 +1,58 @@
+{% load static %}
+{% load my_filters %}
+                        <div id="comment_num_{{ comment.pk }}" class="col-xl-10 col-lg-11 col-10 p-2 {% if comment.user == current_user %}float-right{% else %}float-left{% endif %}">
+                            <div class="card">
+                                <div class="card-header d-flex flex-wrap align-items-center position-relative p-3">
+                                    <div class="d-sm-inline-block d-none border border-secondary rounded-circle overflow-hidden" style="height: 65px;">
+                                        <img src="{% if comment.user.avatar %}/media/{{ comment.user.avatar }}{% else %}{% static 'images/profile-type-2.png' %}{% endif %}" alt="{% if comment.user.get_full_name %}{{ comment.user.get_full_name }}{% else %}{{ comment.user.username }}{% endif %}" title="{% if comment.user.get_full_name %}{{ comment.user.get_full_name }}{% else %}{{ comment.user.username }}{% endif %}" class="h-100">
+                                    </div>
+                                    <span class="ltr-just-me h5 text-primary p-1 p-sm-3">
+                                        @{{ comment.user.username }}
+                                    </span>
+{% if comment.father %}
+                                    <span class="h6 text-secondary p-sm-2 p-1">
+                                        <i class="fa fa-reply"></i>
+                                        پاسخ
+                                    </span>
+{% else %}
+                                    <span class="h6 text-success p-sm-2 p-1">
+                                        <i class="fa fa-comment"></i>
+                                        پیام / نظر کاربر:
+                                    </span>
+{% endif %}
+
+{% if comment.score %}
+                                    <div class="d-lg-inline-block d-none text-warning p-2 border border-warning rounded position-absolute" style="left: 2%;">
+                                        <span class="position-relative">
+                                            <span class="text-secondary">
+                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                            </span>
+                                            <span class="my-rating-type1 d-block position-absolute" data-value="{{ comment.score.value|multiplicationBy:20 }}" style="top: 0; right: 0;">
+                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                            </span>
+                                        </span>
+                                        از 5
+                                    </div>
+                                    <div class="badge d-lg-none position-absolute" style="left: 0; bottom: 0;">
+                                        <span class="my-rating-type1" data-value="{{ comment.score.value|multiplicationBy:20 }}">
+                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        </span>
+                                    </div>
+{% endif %}
+                                </div>
+                                <div class="card-body">
+{% if comment.father and comment.father.is_active %}
+                                    <a href="#{% if not comment.father.is_deleted %}comment_num_{{ comment.father.pk }}{% endif %}" class="d-block m-2 p-2 rounded bg-info text-white">{% if not comment.father.is_deleted %}{{ comment.father.text|limitText:30 }}{% else %}این کامنت حذف شده است!{% endif %}</a>
+{% endif %}
+                                    <p {% if comment.father and comment.father.is_active %}class="pr-5"{% endif %}>{{ comment.text }}</p>
+                                    <button type="button" class="btn btn-danger">
+                                        <i class="fa fa-circle-exclamation"></i>
+                                        گزارش
+                                    </button>
+                                    <button type="button" class="btn btn-success">
+                                        <i class="fa fa-reply"></i>
+                                        پاسخ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
