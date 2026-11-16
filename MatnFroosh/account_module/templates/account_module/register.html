@@ -1,0 +1,71 @@
+{% extends 'shared/base.html' %}
+
+{% block page_title %}ثبت نام کاربر جدید{% endblock %}
+
+{% block page_contents %}
+            <section>
+                <div class="container-fluid mt-5 mb-5">
+                    <div class="row">
+                        <div class="col-md-6 col-10 offset-md-3 offset-1 mt-5 mb-5">
+                            <h3>ثبت نام کاربر جدید</h3><br>
+                            <p style="text-indent: 30px;">
+                                برای ثبت نام، اطلاعات خواسته شده (نام و نام خانوادگی، نشانی ایمیل و رمز عبور) را وارد نمایید. در صورتی که قبلا ثبت نام کرده اید میتوانید با کلیک روی دکمه آبی رنگ "ورود" به صفحه ورود منتقل شوید.
+                            </p><br>
+
+                            <!-- alert -->
+                            {% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
+
+                            <!-- registration form -->
+                            <form method="post">
+                                {% csrf_token %}
+                                <!-- username input -->
+                                <div class="form-group">
+                                    {{ form.username.label_tag }}
+                                    {{ form.username }}
+                                    {% if form.username.errors %}<div class="alert alert-danger p-1 mt-1">{{ form.username.errors }}</div>{% endif %}
+                                </div>
+
+                                <!-- email input -->
+                                <div class="form-group">
+                                    {{ form.email.label_tag }}
+                                    {{ form.email }}
+                                    {% if form.email.errors %}<div class="alert alert-danger p-1 mt-1">{{ form.email.errors }}</div>{% endif %}
+                                </div>
+
+                                <!-- password input -->
+                                <div class="form-group">
+                                    {{ form.password.label_tag }}
+                                    {{ form.password }}
+                                    {% if form.password.errors %}<div class="alert alert-danger p-1 mt-1">{{ form.password.errors }}</div>{% endif %}
+                                </div>
+
+                                <!-- confirm password -->
+                                <div class="form-group">
+                                    {{ form.confirm_password.label_tag }}
+                                    {{ form.confirm_password }}
+                                    {% if form.confirm_password.errors %}<div class="alert alert-danger p-1 mt-1">{{ form.confirm_password.errors }}</div>{% endif %}
+                                </div>
+
+                                <!-- register -->
+                                <button type="submit" class="btn btn-outline-success">
+                                    <i class="fa fa-user-plus"></i>
+                                    <span>ثبت نام</span>
+                                </button>
+
+                                <!-- go to login page -->
+                                <a href="{% url 'login_page' %}" class="btn btn-outline-primary float-left">
+                                    <i class="fa fa-right-to-bracket"></i>
+                                    <span>رفتن به صفحه ورود</span>
+                                </a>
+                                
+                                <a href="{% url 'forgot_password_page' %}" class="btn btn-outline-primary ml-1 float-left">
+                                    <i class="fa fa-arrows-rotate"></i>
+                                    <span>فراموشی رمز</span>
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+{% endblock %}
+    

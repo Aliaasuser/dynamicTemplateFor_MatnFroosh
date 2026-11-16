@@ -19,11 +19,18 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+from account_module.views import Register_view, Login_view, logout_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/', views.test),
     path('shop/', include('product_module.urls')),
     path('comments/', include('comment_module.urls')),
+
+    path('account/', include('account_module.urls')),
+    path('register/', Register_view.as_view(), name='register_page'),
+    path('login/', Login_view.as_view(), name='login_page'),
+    path('logout/', logout_view, name='logout_page'),
+    
     path('home/', views.test, name='home_page')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

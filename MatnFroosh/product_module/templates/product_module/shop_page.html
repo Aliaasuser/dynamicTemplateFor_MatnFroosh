@@ -2,6 +2,12 @@
 {% load static %}
 {% load render_partial %}
 
+{% block page_title %}فروشگاه - لیست محصولات{% endblock %}
+{% block more_page_settings %}
+<meta name="description" content="فروشگاه اینترنتی متن فروش، به عنوان اولین قالب طراحی شده توسط بنده راه اندازی شده است تا بتوانم هم از آن برای تمرین استفاده کنم و هم بتوانم از آن به عنوان رزومه استفاده کنم. همچنین قصد دارم برخی فایل های ساخته شده توسط خود را در قالب محصول متنی برای فروش قرار دهم. محوریت محصولات فایل های متنی میباشد. به امید حق تعالی.">
+<meta name="keywords" content="{% for category in categories %}{{ category.title }}, {% endfor %}{% for tag in tags %}{{ tag.title }}, {% endfor %}">
+{% endblock %}
+
 {% block page_contents %}
             <!-- page contents -->
             <div class="row ltr-just-me mt-3 mb-md-3">

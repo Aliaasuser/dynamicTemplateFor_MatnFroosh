@@ -3,6 +3,12 @@
 {% load my_filters %}
 {% load render_partial %}
 
+{% block page_title %}{{ product.title }} - جزئیات{% endblock %}
+{% block more_page_settings %}
+<meta name="description" content="{{ product.short_description }}">
+<meta name="keywords" content="{% for category in product.joined_categories %}{{ category.title }}, {% endfor %}{% for tag in product.joined_tags %}{{ tag.title }}, {% endfor %}">
+{% endblock %}
+
 {% block page_contents %}
             <div class="row ltr-just-me mt-3 mb-md-3">
 
@@ -185,7 +191,7 @@
 {% block more_page_scripts %}
     <script>
         $('#more-comments').on('click', function(){
-            getMoreComments('{% url 'more_comments_for_product' product.slug %}');
+            getMoreComments("{% url 'more_comments_for_product' product.slug %}");
         })
     </script>
 {% endblock %}

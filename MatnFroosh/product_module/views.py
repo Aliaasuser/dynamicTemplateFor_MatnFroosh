@@ -48,12 +48,16 @@ class ShopPage_view(ListView):
             range_end = page_obj.number + int((range_size - 1) / 2)
         else:
             range_end = page_obj.paginator.num_pages
+        categories = models.ProductCategory_model.objects.filter(is_active=True)
+        tags = models.ProductTag_model.objects.filter(is_active=True)
         context['page_obj_md'] = {
             'is_pre_ellipsis' : is_pre_ellipsis,
             'is_next_ellipsis' : is_next_ellipsis,
             'range_start' : range_start,
             'range_end' : range_end,
             'page_range' : range(range_start, range_end + 1, 1),
+            'categories' : categories,
+            'tags' : tags,
         }
         return context
 

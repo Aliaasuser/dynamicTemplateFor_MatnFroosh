@@ -1,0 +1,57 @@
+{% extends 'shared/base.html' %}
+
+{% block page_title %}ورود کاربر{% endblock %}
+
+{% block page_contents %}
+            <section>
+                <div class="container-fluid mt-5 mb-5">
+                    <div class="row">
+                        <div class="col-md-6 col-10 offset-md-3 offset-1 mt-5 mb-5">
+                            <h3>ورود کاربر</h3><br>
+                            <p style="text-indent: 30px;">
+                                برای ورود، اطلاعات خواسته شده (نشانی ایمیل و رمز عبور) را وارد نمایید. در صورتی که قبلا ثبت نام نکرده اید میتوانید با کلیک روی دکمه آبی رنگ "ثبت نام کاربر جدید" ثبت نام نمایید.
+                            </p><br>
+
+                            <!-- alert -->
+                            {% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
+
+                            <!-- login form -->
+                            <form method="post">
+                                {% csrf_token %}
+                                <!-- email input -->
+                                <div class="form-group">
+                                    {{ form.email.label_tag }}
+                                    {{ form.email }}
+                                    {% if form.email.errors %}<div class="alert alert-danger p-1 mt-1">{{ form.email.errors }}</div>{% endif %}
+                                </div>
+
+                                <!-- password input -->
+                                <div class="form-group">
+                                    {{ form.password.label_tag }}
+                                    {{ form.password }}
+                                    {% if form.password.errors %}<div class="alert alert-danger p-1 mt-1">{{ form.password.errors }}</div>{% endif %}
+                                </div>
+
+                                <!-- login -->
+                                <button type="submit" class="btn btn-outline-success">
+                                    <i class="fa fa-right-to-bracket"></i>
+                                    <span>ورود</span>
+                                </button>
+
+                                <!-- got to register page -->
+                                <a href="{% url 'register_page' %}" class="btn btn-outline-primary float-left">
+                                    <i class="fa fa-user-plus"></i>
+                                    <span>ثبت نام کاربر جدید</span>
+                                </a>
+                                
+                                <a href="{% url 'forgot_password_page' %}" class="btn btn-outline-primary ml-1 float-left">
+                                    <i class="fa fa-arrows-rotate"></i>
+                                    <span>فراموشی رمز</span>
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+{% endblock %}
+    
